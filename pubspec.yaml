@@ -29,9 +29,10 @@ flutter:
   assets:
    - assets/images/
 
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
+  fonts:
+   - family: Inter
+     fonts:
+       - asset: assets/fonts/Inter-Light.ttf
+       - asset: assets/fonts/Inter-Bold.ttf
+       - asset: assets/fonts/Inter-Medium.ttf
+       - asset: assets/fonts/Inter-Regular.ttf

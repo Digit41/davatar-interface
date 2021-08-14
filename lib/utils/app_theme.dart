@@ -16,7 +16,7 @@ class AppTheme {
     primaryColor: _green,
     scaffoldBackgroundColor: Colors.white,
     checkboxTheme: _checkBoxTh,
-    fontFamily: 'IBM_Plex',
+    fontFamily: 'Inter',
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       backgroundColor: Colors.white,
       elevation: 3.0,
@@ -35,7 +35,7 @@ class AppTheme {
     primaryColor: _green,
     scaffoldBackgroundColor: Colors.black,
     checkboxTheme: _checkBoxTh,
-    fontFamily: 'IBM_Plex',
+    fontFamily: 'Inter',
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       backgroundColor: Color(0xff151515),
       elevation: 3.0,
