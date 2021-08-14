@@ -41,25 +41,7 @@ class _CenterBoxState extends State<CenterBox> {
         ),
       );
 
-  Widget addressSuffix() => InkWell(
-        onTap: () {
-          FlutterClipboard.paste().then((value) {
-            toAddress!.controller.text = value;
-          });
-        },
-        child: Container(
-          margin: const EdgeInsets.symmetric(horizontal: 16.0),
-          padding: const EdgeInsets.fromLTRB(21.0, 12.0, 21.0, 0.0),
-          decoration: BoxDecoration(
-            color: Theme.of(context).scaffoldBackgroundColor,
-            borderRadius: BorderRadius.circular(16.0),
-          ),
-          child: Text(
-            Strings.PASTE.tr,
-            style: TextStyle(fontWeight: FontWeight.bold),
-          ),
-        ),
-      );
+
 
   @override
   void initState() {
@@ -84,7 +66,7 @@ class _CenterBoxState extends State<CenterBox> {
 
   @override
   Widget build(BuildContext context) {
-    toAddress!.suffixIcon = addressSuffix();
+    toAddress!.suffixIcon = pasteSuffix(toAddress!.controller);
     amount!.suffixIcon = amountSuffix();
 
     return Container(

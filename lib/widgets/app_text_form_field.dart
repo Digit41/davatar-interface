@@ -1,3 +1,4 @@
+import 'package:clipboard/clipboard.dart';
 import 'package:dapp/utils/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -133,3 +134,23 @@ class _AppTextFormFieldState extends State<AppTextFormField> {
       FocusScope.of(context).requestFocus(widget.nextFocusNode);
   }
 }
+
+Widget pasteSuffix(TextEditingController controller) => InkWell(
+  onTap: () {
+    FlutterClipboard.paste().then((value) {
+      controller.text = value;
+    });
+  },
+  child: Container(
+    margin: const EdgeInsets.symmetric(horizontal: 16.0),
+    padding: const EdgeInsets.fromLTRB(21.0, 12.0, 21.0, 0.0),
+    decoration: BoxDecoration(
+      color: Get.theme.scaffoldBackgroundColor,
+      borderRadius: BorderRadius.circular(16.0),
+    ),
+    child: Text(
+      Strings.PASTE.tr,
+      style: TextStyle(fontWeight: FontWeight.bold),
+    ),
+  ),
+);

@@ -56,10 +56,11 @@ class _SettingsMenuState extends State<SettingsMenu> {
             Icons.wb_sunny_outlined,
             changeTheme,
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 4.0, bottom: 16.0),
-            child: claim(),
-          ),
+          if (widget._isConnected!)
+            Padding(
+              padding: const EdgeInsets.only(top: 4.0, bottom: 16.0),
+              child: claim(),
+            ),
         ],
       ),
     );
