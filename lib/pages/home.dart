@@ -38,7 +38,7 @@ class _HomeState extends State<Home> {
     Timer(Duration(milliseconds: 500), () {
       // connectToWallet();
       if (eth != null) {
-        showSnackBar(eth!.isConnected().toString());
+        // showSnackBar(eth!.isConnected().toString());
         eth!.chainChanged.listen((event) {
           showSnackBar(event.toString());
         });

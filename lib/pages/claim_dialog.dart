@@ -23,7 +23,6 @@ void claimDialog() {
       children: [
         SizedBox(
           width: 360.0,
-          height: 380.0,
           child: Column(
             children: [
               Container(

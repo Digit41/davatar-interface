@@ -73,7 +73,6 @@ class _CenterBoxState extends State<CenterBox> {
       padding: const EdgeInsets.all(8.0),
       margin: const EdgeInsets.only(top: 68.0),
       width: 480.0,
-      height: 316.0,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(24.0),
         color: Theme.of(context).scaffoldBackgroundColor,
