@@ -20,4 +20,5 @@ class Strings{
   static const RECIPIENT = 'Recipient';
   static const DESC_CLAIM_DIALOG = 'Enter an address to trigger a DIGIT41 claim. If the address has any claimable DIGIT41 it will be sent to them on submission.';
   static const WALLET_ADDER_ENS = 'Wallet Address or ENS name';
+  static const SUCCESS_DONE = 'Successfully Done';
 }

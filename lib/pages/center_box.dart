@@ -1,4 +1,3 @@
-import 'package:clipboard/clipboard.dart';
 import 'package:dapp/utils/app_snackbar.dart';
 import 'package:dapp/utils/images_path.dart';
 import 'package:dapp/utils/strings.dart';
@@ -9,12 +8,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:web3dart/credentials.dart';
+import 'package:web3dart/web3dart.dart';
 
 class CenterBox extends StatefulWidget {
+  Web3Client? client;
   CredentialsWithKnownAddress? credentials;
   GestureTapCallback connectWallet;
 
-  CenterBox(this.credentials, this.connectWallet);
+  CenterBox(this.client, this.credentials, this.connectWallet);
 
   @override
   _CenterBoxState createState() => _CenterBoxState();
@@ -40,8 +41,6 @@ class _CenterBoxState extends State<CenterBox> {
           ],
         ),
       );
-
-
 
   @override
   void initState() {
@@ -138,7 +137,7 @@ class _CenterBoxState extends State<CenterBox> {
     );
   }
 
-  void send() {
+  void send() async {
     if (!isNumeric(amount!.controller.text) ||
         !toAddress!.controller.text.startsWith('0x')) {
       showSnackBar(
@@ -147,20 +146,23 @@ class _CenterBoxState extends State<CenterBox> {
       return;
     }
 
-    // client.sendTransaction(
-    //   credentials,
-    //   Transaction(
-    //     to: EthereumAddress.fromHex(
-    //       '0x1e1c5701D5C4F7265aea10955A967d93097bC4b9',
-    //     ),
-    //     gasPrice: EtherAmount.inWei(BigInt.from(1000000000)),
-    //     maxGas: 21000,
-    //     value: EtherAmount.fromUnitAndValue(
-    //         EtherUnit.wei, 500000000000000000),
-    //   ),
-    //   fetchChainIdFromNetworkId: true,
-    // );
-    //
+    /// result is trxHash
+    String result = await widget.client!.sendTransaction(
+      widget.credentials!,
+      Transaction(
+        to: EthereumAddress.fromHex(toAddress!.controller.text),
+        gasPrice: EtherAmount.inWei(BigInt.from(1000000000)),
+        maxGas: 21000,
+        value: EtherAmount.fromUnitAndValue(
+          EtherUnit.wei,
+          castEthToWei(double.parse(amount!.controller.text)),
+        ),
+      ),
+      fetchChainIdFromNetworkId: true,
+    );
+
+    showSnackBar(Strings.SUCCESS_DONE.tr);
+    
     // eth.request(args)
     // eth.rawRequest(method)
 

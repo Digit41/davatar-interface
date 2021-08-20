@@ -102,7 +102,7 @@ class _HomeState extends State<Home> {
                       ),
                     ],
                   ),
-                  CenterBox(credentials, connectToWallet),
+                  CenterBox(client, credentials, connectToWallet),
                 ],
               ),
               Positioned(
