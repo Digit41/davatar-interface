@@ -1,11 +1,15 @@
 import 'package:dapp/pages/home.dart';
+import 'package:dapp/pages/second_page.dart';
 import 'package:dapp/utils/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:url_strategy/url_strategy.dart';
 
 import 'utils/app_shared_preferences.dart';
 
+
 void main() {
+  setPathUrlStrategy();
   runApp(MyApp());
 }
 
@@ -38,7 +42,11 @@ class MyApp extends StatelessWidget {
               debugShowCheckedModeBanner: false,
               theme: AppTheme.light,
               darkTheme: AppTheme.dark,
-              home: Home(),
+              initialRoute: '/',
+              getPages: [
+                GetPage(name: '/', page: () => Home()),
+                GetPage(name: '/secondPage', page: () => SecondPage()),
+              ],
             )
           : Center(),
     );
